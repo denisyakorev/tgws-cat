@@ -1,5 +1,7 @@
 import 'rc-tree/assets/index.css';
 import React from 'react';
+import $ from 'jquery'
+
 
 import Tree, { TreeNode } from 'rc-tree';
 //import cssAnimation from 'css-animation';
@@ -19,16 +21,31 @@ const STYLE = `
 }
 `;
 
-function PubTree() {
+
+function constructTree(nodeObj){
+    var result;
+    if (!nodeObj.children){
+        return React.createElement(TreeNode, { title: "leaf" });
+    }else{
+        result = <TreeNode title={nodeObj.name} key={nodeObj.code}>;
+        //result += nodeObj.children.forEach(function(item){constructTree(item)});
+        result += </TreeNode>;
+        return result;
+    }
+}
+
+
+function PubTree(pub_data) {
     return (
             <div className='fdb-box fdb-touch'>
-                <h2>Структура документа</h2>
+                <h2>{pub_data.name}</h2>
                 <style dangerouslySetInnerHTML={{__html: STYLE}}/>
                 <Tree
                     defaultExpandAll={false}
                     defaultExpandedKeys={['p1']}
                 >
-                    <TreeNode title="parent 1" key="p1">
+                    constructTree(pub_data.content_json[0]);
+                    /*<TreeNode title="parent 1" key="p1">
                         <TreeNode key="p10" title="leaf"/>
                         <TreeNode title="parent 1-1" key="p11">
                             <TreeNode title="parent 2-1" key="p21">
@@ -37,7 +54,7 @@ function PubTree() {
                             </TreeNode>
                             <TreeNode key="p22" title="leaf"/>
                         </TreeNode>
-                    </TreeNode>
+                    </TreeNode>*/
                 </Tree>
             </div>
 
