@@ -11,7 +11,9 @@ class PubTreeJQ extends React.Component{
     componentDidMount(){
         var obj = JSON.parse(this.props.pub_data.pub_data.content_json);
         $(function() {
-          $('#tree-holder').jstree(obj);
+          $('#tree-holder').jstree(obj).bind("select_node.jstree", function (event, data) {
+             document.location = (data.node.a_attr.href);
+          });
         });
 
     }
