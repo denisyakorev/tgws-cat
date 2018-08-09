@@ -20,6 +20,7 @@ class PubTreeJQ extends React.Component{
 
 
     render() {
+        console.log(this.props);
         return(
             <div>
                 <div className='fdb-box fdb-touch'>
