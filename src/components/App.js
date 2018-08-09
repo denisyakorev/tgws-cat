@@ -1,26 +1,43 @@
-import React from 'react'
-import 'bootstrap/dist/css/bootstrap.css'
+import React, {Component} from 'react';
+import 'bootstrap/dist/css/bootstrap.css';
 
 
-import PubTreeJQ from './PubTreeJQ'
-import Content from './Content'
+import Content from './Content';
+import PubTreeJQ from './PubTreeJQ';
 
-function App(pub_data){
+import {connect} from 'react-redux';
 
-	return(
-		<div className='fdb-block'>
-			<div className="container">
-				<div className="row">
-					<div className="col-12 col-md-8 m-auto col-lg-4">
-						<PubTreeJQ pub_data={pub_data}/>
-					</div>
-					<div className="col-sm-8">
-						<Content />
+class App extends Component{
+	
+	render(){
+		console.log(this.props.pubStore)
+		return(
+			<div>
+				<div className="container">
+					<div className="row">
+						<h2>Публикация: {this.props.pubStore.publication.name}</h2>
+					</div>					
+				</div>
+				<div className='fdb-block'>
+					<div className="container">
+						<div className="row">
+							<div className="col-12 col-md-8 m-auto col-lg-4">
+								<PubTreeJQ />
+							</div>
+							<div className="col-sm-8">
+								<Content />
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
-		</div>
 		)
+	}
 }
 
-export default App
+export default connect(
+	state => ({
+		pubStore: state
+	}),
+	dispatch => ({})
+	)(App);
