@@ -25,6 +25,7 @@ if (xhr.status !== 200) {
 const initialState = {
 	publicationCode: '',
 	publication: {},
+	moduleCode:'',
 	module: {}
 }
 
@@ -37,10 +38,10 @@ function updatePubStore(state=initialState, action){
 				publication: action.payload
 			};
 
-		case 'CHANGE_PUBLICATION':
+		case 'CHANGE_MODULE':
 			return{
-				...state,
-				publicationCode: action.payload
+				...state,				
+				moduleCode: action.payload
 			}
 
 	}

@@ -5,7 +5,7 @@ class Content extends Component{
 	render(){
 		return (
 				<div>
-					<h3>Здесь будет содержание модуля: {this.props.pubStore.publication.name}</h3>
+					<h3>Здесь будет содержание модуля: {this.props.pubStore.moduleCode}</h3>
 				</div>
 			)
 	}
