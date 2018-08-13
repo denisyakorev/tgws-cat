@@ -11,7 +11,7 @@ import App from './components/App';
 
 
 var xhr = new XMLHttpRequest();
-var api_url = 'http://localhost:8000/api/publication_detail/2'
+var api_url = 'http://localhost:8000/api/publication_detail/3204-A-00-0-0-00-00-A-022-A-D'
 xhr.open('GET', api_url, false);
 xhr.send();
 if (xhr.status !== 200) {
