@@ -28,9 +28,9 @@ class PubTreeJQ extends React.Component{
     render() {        
         return(
             <div>
-                <div className='fdb-box fdb-touch'>
+                <div className='fdb-box fdb-touch' style={{padding: '60px 20px'}}>
                     <h2>{this.props.pubStore.publication.name}</h2>
-                    <div id='tree-holder'></div>
+                    <div id='tree-holder' style={{'overflow-y': 'auto'}}></div>
                     <input key='checked-pub' id='checked-pub' ref={(input) => {this.newPubCode = input}} type='hidden' onClick={this.changePublication.bind(this)} />
 
                 </div>

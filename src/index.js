@@ -26,7 +26,9 @@ const initialState = {
 	publicationCode: '',
 	publication: {},
 	moduleCode:'',
-	module: {}
+	module: {},
+	pubApiEndpoint: 'http://localhost:8000/api/publication_detail/3204-A-00-0-0-00-00-A-022-A-D',
+	moduleApiEndpoint: 'http://localhost:8000/api/module_detail/'
 }
 
 
@@ -42,7 +44,14 @@ function updatePubStore(state=initialState, action){
 			return{
 				...state,				
 				moduleCode: action.payload
+			};
+
+		case 'LOAD_MODULE':
+			return{
+				...state,
+				module: action.payload
 			}
+
 
 	}
 	return state;
@@ -51,10 +60,6 @@ function updatePubStore(state=initialState, action){
 
 const store = createStore(updatePubStore, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 
-
-store.subscribe(() => {
-	console.log('subscribe', store.getState());
-})
 
 store.dispatch({type: 'LOAD_PUBLICATION', payload: pub_data});
 
