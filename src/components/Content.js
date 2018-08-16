@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux';
+import ModuleBody from './ModuleBody';
 
 class Content extends Component{
 
@@ -8,15 +9,11 @@ class Content extends Component{
         this.state = {};
         this.state.module = {};
         this.state.module.title = '';
-        this.state.module.issue_number = '0';
-        this.state.module.content_json = {};
-        this.state.module.content_json.info = {};
-        this.state.module.content_json.info.issue_date='';
 
     }
 
     shouldComponentUpdate(nextProps, nextState){
-	    return this.props.pubStore.moduleCode != nextProps.pubStore.moduleCode
+	    return this.props.pubStore.moduleCode !== nextProps.pubStore.moduleCode
     }
 
     componentWillUpdate(nextProps, nextState){
@@ -29,43 +26,22 @@ class Content extends Component{
         } else {
           var pub_data = JSON.parse(xhr.responseText);
           nextProps.loadModule(pub_data);
-          this.state.module = pub_data;
-          if (this.state.module.content_json){
-              this.state.module.content_json = JSON.parse(this.state.module.content_json);
-          }else{
-              this.state.module.content_json = {}
-          }
-
-
+          this.setState({module:pub_data});
         }
     }
 
     render(){
-
+        console.log('state', this.state);
+        console.log('props', this.props);
 		return (
             <section className="fdb-block">
                 <div className="container">
                     <div className="row">
                         <div className="col text-center">
-                            <h1>{this.state.module.title}</h1>
-
-                            <div className="row text-left pt-4">
-                                <div className="col-12 col-md-6">
-                                    <p className="text-h3">
-                                        <strong>Редакция:</strong>
-
-                                    </p>
-                                    <p className="text-h3">
-                                        <strong>Дата редакции:</strong>
-
-                                    </p>
-                                </div>
-                                <div className="col-12 col-md-6">
-                                    <p className="text-h3"></p>
-                                </div>
-                            </div>
-                        </div>
+                            <h1>{this.props.pubStore.module.title}</h1>                                                        
+                        </div>                        
                     </div>
+                    <ModuleBody />
                 </div>
             </section>
 			)

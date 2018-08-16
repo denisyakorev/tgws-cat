@@ -32,16 +32,7 @@ class App extends Component{
 							</div>								
 						</div>
 					</div>
-				</div>
-				<div className='fdb-block'>
-					<div className="container">
-						<div className="row">							
-							<div className="col-sm-8">
-								<Content />
-							</div>
-						</div>
-					</div>
-				</div>
+				</div>				
 			</div>
 		)
 	}

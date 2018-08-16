@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import { Router, Route} from 'react-router';
+import {Route} from 'react-router';
 import {HashRouter} from 'react-router-dom';
 
 import {Provider} from 'react-redux';
@@ -51,10 +51,9 @@ function updatePubStore(state=initialState, action){
 				...state,
 				module: action.payload
 			}
-
-
-	}
-	return state;
+		default:
+			return state
+	}	
 }
 
 
