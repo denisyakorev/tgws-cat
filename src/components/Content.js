@@ -9,11 +9,12 @@ class Content extends Component{
         this.state = {};
         this.state.module = {};
         this.state.module.title = '';
+        this.state.module.id = '';
 
     }
 
     shouldComponentUpdate(nextProps, nextState){
-	    return this.props.pubStore.moduleCode !== nextProps.pubStore.moduleCode
+        return !(this.props.pubStore.moduleCode === nextProps.pubStore.moduleCode && this.props.pubStore.module.id === nextProps.pubStore.module.id)
     }
 
     componentWillUpdate(nextProps, nextState){
@@ -25,20 +26,18 @@ class Content extends Component{
           alert( xhr.status + ': ' + xhr.statusText ); // пример вывода: 404: Not Found
         } else {
           var pub_data = JSON.parse(xhr.responseText);
-          nextProps.loadModule(pub_data);
-          this.setState({module:pub_data});
+          this.props.loadModule(pub_data);
+          this.setState({module:nextProps.pubStore.module});
         }
     }
 
     render(){
-        console.log('state', this.state);
-        console.log('props', this.props);
-		return (
+        return (
             <section className="fdb-block">
                 <div className="container">
                     <div className="row">
                         <div className="col text-center">
-                            <h1>{this.props.pubStore.module.title}</h1>                                                        
+                            <h1>{this.props.pubStore.module.title}</h1>
                         </div>                        
                     </div>
                     <ModuleBody />

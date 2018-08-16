@@ -6,7 +6,14 @@ class ModuleInfo extends Component{
 	render(){
 		let body = ''
 		try{
-			body = this.props.pubStore.module.content_json['info']
+			let obj = JSON.parse(this.props.pubStore.module.content_json);
+			let info = obj['info'];
+			body = (
+				<div>
+
+				</div>
+			)
+
 		}catch(e){
 			body = ''
 		}
