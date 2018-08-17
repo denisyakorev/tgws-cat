@@ -9,11 +9,11 @@ class ModuleBody extends Component{
 	
 	render(){
 		return(
-			<div>				
+			<section className="fdb-box fdb-touch">
 				<ModuleInfo />
 				<Gallery />
 				<Parts />
-			</div>
+			</section>
 	    )
 	}
 }
