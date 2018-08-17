@@ -16,9 +16,15 @@ const initialState = {
 	publicationCode: '',
 	publication: {},
 	moduleCode:'',
-	module: {},
+	module: {
+		title: '',
+        id: '',
+        is_category: true,
+        content_json: '{}'
+	},
 	pubApiEndpoint: 'http://localhost:8000/api/publication_detail/3204-A-00-0-0-00-00-A-022-A-D',
-	moduleApiEndpoint: 'http://localhost:8000/api/module_detail/'
+	moduleApiEndpoint: 'http://localhost:8000/api/module_detail/',
+	server_url: 'http://localhost:8000/api'
 }
 
 
@@ -54,11 +60,10 @@ xhr.open('GET', api_url, false);
 xhr.send();
 if (xhr.status !== 200) {
   alert( xhr.status + ': ' + xhr.statusText ); // пример вывода: 404: Not Found
-} else {
-  //alert(xhr.responseText);
+} else {  
   var pub_data = JSON.parse(xhr.responseText);
-
 }
+
 store.dispatch({type: 'LOAD_PUBLICATION', payload: pub_data});
 
 ReactDOM.render(
@@ -71,4 +76,3 @@ ReactDOM.render(
 	document.getElementById('root')
 	);
 
-//<App pub_data={pub_data}/>,

@@ -10,6 +10,8 @@ class Content extends Component{
         this.state.module = {};
         this.state.module.title = '';
         this.state.module.id = '';
+        this.state.module.is_category = true;
+        this.state.module.content_json = '{}';
 
     }
 
@@ -32,17 +34,8 @@ class Content extends Component{
     }
 
     render(){
-        return (
-            <section className="fdb-block">
-                <div className="container">
-                    <div className="row">
-                        <div className="col text-center">
-                            <h1>{this.props.pubStore.module.title}</h1>
-                        </div>                        
-                    </div>
-                    <ModuleBody />
-                </div>
-            </section>
+        return (           
+                    <ModuleBody />                
 			)
 	}
 }

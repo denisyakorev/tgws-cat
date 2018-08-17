@@ -9,7 +9,7 @@ class ModuleBody extends Component{
 	
 	render(){
 		return(
-			<div>
+			<div>				
 				<ModuleInfo />
 				<Gallery />
 				<Parts />
