@@ -7,19 +7,16 @@ class Gallery extends Component{
 	render(){
 		console.log('props', this.props);
 		let body = '';
-		let galleryIcons = '';
+		let icons_srcs = [];
 		let imgs= [];
 		if(!this.props.pubStore.module.is_category){
 			let obj = JSON.parse(this.props.pubStore.module.content_json);
 			imgs = obj['data']['imgs'];
 			if(imgs){
 
-				for (var i=0; i < imgs.length; i++){
-					galleryIcons += (
-						<div className="col-6 col-md-3">
-						  <img alt="image" className="img-fluid" src={this.props.pubStore.server_url + imgs[i]['src']} />
-						</div>
-					)
+				for (var i=0; i < imgs.length; i++) {
+					icons_srcs.push(this.props.pubStore.server_url + imgs[i]['src']);
+                }
 
 				let main_img_src= this.props.pubStore.server_url + imgs[0]['src'];
 				body = (
@@ -37,16 +34,19 @@ class Gallery extends Component{
 				}
 
 			}
-		}
-		console.log(galleryIcons);
+
 		return(
 			<div>
 				<div>{body}</div>
 				<div className="row pt-4">
-					{imgs.map(n, i) => (<div className="col-6 col-md-3"><img key={i} alt="image" className="img-fluid" src={this.props.pubStore.server_url + imgs[i]['src']} /></div>)}
+					{icons_srcs.map((n, i) =>
+						<div className="col-6 col-md-3">
+							<img key={i} alt="image" className="img-fluid" src={n} />
+						</div>
+						)}
 				</div>
 			</div>
-	    )
+		)
 	}
 }
 
