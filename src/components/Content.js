@@ -34,8 +34,10 @@ class Content extends Component{
     }
 
     render(){
-        return (           
-                    <ModuleBody />                
+        return (
+                <div id='moduleBody'>
+                    <ModuleBody />
+                </div>
 			)
 	}
 }

@@ -21,13 +21,15 @@ class PubTreeJQ extends React.Component{
           $('#tree-holder').jstree(obj).bind("select_node.jstree", function (event, data) {                          
              $('#checked-pub').attr('value', data.node.a_attr.href).click(); 
           });
-        });        
+        });
+
+
     }
 
 
     render() {        
         return(
-            <div>
+            <div id='tree-container'>
                 <div className='fdb-box fdb-touch' style={{padding: '60px 20px'}}>
                     <h2>{this.props.pubStore.publication.name}</h2>
                     <div id='tree-holder' style={{'overflow-y': 'auto'}}></div>
@@ -43,6 +45,7 @@ export default connect(
     state => ({
         pubStore: state
     }),
+
     dispatch => ({
         changePublication: (newPubCode) => {            
             dispatch({type: 'CHANGE_MODULE', payload: newPubCode});

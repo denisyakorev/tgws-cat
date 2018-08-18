@@ -24,7 +24,9 @@ const initialState = {
 	},
 	pubApiEndpoint: 'http://localhost:8000/api/publication_detail/3204-A-00-0-0-00-00-A-022-A-D',
 	moduleApiEndpoint: 'http://localhost:8000/api/module_detail/',
-	server_url: 'http://localhost:8000/api'
+	server_url: 'http://localhost:8000/api',
+	tree_height: 0,
+	content_height: 0
 }
 
 
@@ -46,7 +48,8 @@ function updatePubStore(state=initialState, action){
 			return{
 				...state,
 				module: action.payload
-			}
+			};
+
 		default:
 			return state
 	}	

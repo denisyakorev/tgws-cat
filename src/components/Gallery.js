@@ -5,7 +5,6 @@ import {connect} from 'react-redux'
 class Gallery extends Component{
 	
 	render(){
-		console.log('props', this.props);
 		let body = '';
 		let icons_srcs = [];
 		let imgs= [];
@@ -24,7 +23,7 @@ class Gallery extends Component{
 					    <div className="container">
 					      <div className="row">
 					        <div className="col-12">
-					          <img className="img-fluid" src={main_img_src} />
+					          <img alt= "main img" className="img-fluid" src={main_img_src} />
 					        </div>
 					      </div>
 					    </div>
@@ -41,7 +40,7 @@ class Gallery extends Component{
 				<div className="row pt-4">
 					{icons_srcs.map((n, i) =>
 						<div className="col-6 col-md-3">
-							<img key={i} alt="image" className="img-fluid" src={n} />
+							<img key={i} alt="icon img" className="img-fluid" src={n} />
 						</div>
 						)}
 				</div>
