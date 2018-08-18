@@ -24,18 +24,13 @@ class Parts extends Component{
 							</thead>
 							<tbody>
 							{parts.map((n,i) =>
-								<tr className={i%2 === 0 ? 'even':'odd'}>
+								<tr key={i} className={i%2 === 0 ? 'even':'odd'}>
 									<td>{n['info']['code']}</td>
 									<td>{n['info']['partNumber']}</td>
 									<td>{n['info']['quantity']}</td>
 								</tr>
 
 							)}
-
-							<tr className="odd">
-								<td></td>
-								<td></td>
-							</tr>
 							</tbody>
                     </table>
 				</div>

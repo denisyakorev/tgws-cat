@@ -39,7 +39,7 @@ class Gallery extends Component{
 				<div>{body}</div>
 				<div className="row pt-4">
 					{icons_srcs.map((n, i) =>
-						<div className="col-6 col-md-3">
+						<div key={i} className="col-6 col-md-3">
 							<img key={i} alt="icon img" className="img-fluid" src={n} />
 						</div>
 						)}
