@@ -22,9 +22,9 @@ const initialState = {
         is_category: true,
         content_json: '{}'
 	},
-	pubApiEndpoint: 'http://localhost:8000/api/publication_detail/3204-A-00-0-0-00-00-A-022-A-D',
-	moduleApiEndpoint: 'http://localhost:8000/api/module_detail/',
-	server_url: 'http://localhost:8000/api',
+	pubApiEndpoint: 'http://82.146.45.228:8050/api/publication_detail/3204-A-00-0-0-00-00-A-022-A-D',
+	moduleApiEndpoint: 'http://82.146.45.228:8050/api/module_detail/',
+	server_url: 'http://82.146.45.228:8050/api',
 	tree_height: 0,
 	content_height: 0
 }
