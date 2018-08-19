@@ -58,7 +58,7 @@ function updatePubStore(state=initialState, action){
 const store = createStore(updatePubStore, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 
 var xhr = new XMLHttpRequest();
-var api_url = this.state.pubApiEndpoint;
+var api_url = initialState.pubApiEndpoint;
 xhr.open('GET', api_url, false);
 xhr.send();
 if (xhr.status !== 200) {
